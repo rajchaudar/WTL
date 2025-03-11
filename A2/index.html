@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivraj Chaudar | Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            font-size: 16px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: navy;">Welcome to My Portfolio</h1> <!-- Inline CSS -->
+    </header>
+    
+    <section>
+        <h2>About Me</h2>
+        <p>Hi, I'm <b>Shivraj Chaudar</b>. I specialize in web development and machine learning.</p>
+        <p>I have experience in backend and frontend technologies, API development, and data analysis.</p>
+    </section>
+    
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            <li>Full Stack Web Development</li>
+            <li>Machine Learning</li>
+            <li>Database Management (SQL, MongoDB)</li>
+            <li>REST API Development</li>
+            <li>Cloud Computing (Azure)</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Projects</h2>
+        <table>
+            <tr>
+                <th>Project Name</th>
+                <th>Technology</th>
+            </tr>
+            <tr>
+                <td>HR Dashboard</td>
+                <td>Node.js, Handlebars, MongoDB</td>
+            </tr>
+            <tr>
+                <td>YouTube Video Downloader Extension For Chrome</td>
+                <td>JavaScript,HTML,CSS</td>
+            </tr>
+            <tr>
+                <td>Climate Action ML</td>
+                <td>Machine Learning, Python</td>
+            </tr>
+            <tr>
+                <td>Online Food Order Website</td>
+                <td>React, Express.js, MongoDB</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section>
+        <h2>Contact Me</h2>
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="40" required></textarea><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+</html>

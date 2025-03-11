@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Registration & Login</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { width: 300px; margin: auto; }
+        input, button { width: 100%; padding: 10px; margin: 5px 0; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="AuthController">
+
+    <div class="container">
+        <h2>Register</h2>
+        <form ng-submit="register()">
+            <input type="text" ng-model="newUser.firstName" placeholder="First Name" required>
+            <input type="text" ng-model="newUser.lastName" placeholder="Last Name" required>
+            <input type="text" ng-model="newUser.username" placeholder="Username" required>
+            <input type="password" ng-model="newUser.password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        
+        <h2>Login</h2>
+        <form ng-submit="login()">
+            <input type="text" ng-model="loginData.username" placeholder="Username" required>
+            <input type="password" ng-model="loginData.password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <p ng-if="message">{{ message }}</p>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("AuthController", function($scope) {
+            $scope.users = [];
+
+            $scope.register = function() {
+                let exists = $scope.users.some(user => user.username === $scope.newUser.username);
+                if (exists) {
+                    $scope.message = "Username already exists!";
+                } else {
+                    $scope.users.push({ 
+                        firstName: $scope.newUser.firstName, 
+                        lastName: $scope.newUser.lastName, 
+                        username: $scope.newUser.username, 
+                        password: $scope.newUser.password 
+                    });
+                    $scope.message = "Registration successful!";
+                    $scope.newUser = {};
+                }
+            };
+
+            $scope.login = function() {
+                let user = $scope.users.find(user => user.username === $scope.loginData.username && user.password === $scope.loginData.password);
+                if (user) {
+                    $scope.message = "Login successful! Welcome, " + user.firstName;
+                } else {
+                    $scope.message = "Invalid username or password.";
+                }
+            };
+        });
+    </script>
+
+</body>
+</html>

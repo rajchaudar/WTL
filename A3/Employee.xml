@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="employee.xsl" type="text/xsl"?>
+<employees>
+    <info>
+        <name>Shivraj Chaudar</name>
+        <age>21</age>
+        <salary>$150000</salary>
+        <address>Pune</address>
+    </info>
+    <info>
+        <name>Amit Sharma</name>
+        <age>26</age>
+        <salary>$120000</salary>
+        <address>Mumbai</address>
+    </info>
+    <info>
+        <name>Neha Verma</name>
+        <age>27</age>
+        <salary>$110000</salary>
+        <address>Delhi</address>
+    </info>
+    <info>
+        <name>Rahul Singh</name>
+        <age>28</age>
+        <salary>$130000</salary>
+        <address>Bangalore</address>
+    </info>
+    <info>
+        <name>Pooja Reddy</name>
+        <age>29</age>
+        <salary>$125000</salary>
+        <address>Chennai</address>
+    </info>
+    <info>
+        <name>Vikram Joshi</name>
+        <age>30</age>
+        <salary>$135000</salary>
+        <address>Kolkata</address>
+    </info>
+</employees>
