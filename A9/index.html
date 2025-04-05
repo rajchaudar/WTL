@@ -3,15 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AngularJS Registration & Login</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-route.min.js"></script>
-    <script src="app.js"></script>
-    <script src="controllers.js"></script>
-    <script src="services.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <title>AngularJS Registration and Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .forms {
+            width: 300px;
+            margin: auto;
+        }
+        input , button {
+            margin: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
 </head>
-<body ng-app="myApp">
-    <div ng-view></div>
+<body ng-app="userApp">
+    
+    <div ng-controller="UserController" class="forms">
+        <h2>Registration Form</h2>
+        <form name="registerForm" ng-submit="register()" style="text-align: center;">
+            <input type="text" ng-model="user.firstName" placeholder="First Name" required >
+            <input type="text" ng-model="user.lastName" placeholder="Last Name" required >
+            <input type="text" ng-model="user.username" placeholder="Username" required >
+            <input type="password" ng-model="user.password" placeholder="Password" required >
+            <button type="submit">Register</button>
+        </form>
+        
+        <h2>Login</h2>
+        <form name="loginForm" ng-submit="login()" style="text-align: center;">
+            <input type="text" ng-model="loginData.username" placeholder="Username" required>
+            <input type="password" ng-model="loginData.password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        
+        <p>{{ message }}</p>
+    </div>
+    
+    <script>
+        var app = angular.module("userApp", []);
+        app.controller("UserController", function ($scope) {
+            $scope.users = [];
+            $scope.message = "";
+            
+            $scope.register = function () {
+                $scope.users.push({
+                    firstName: $scope.user.firstName,
+                    lastName: $scope.user.lastName,
+                    username: $scope.user.username,
+                    password: $scope.user.password
+                });
+                $scope.message = "Registration successful!";
+                $scope.user = {};
+            };
+            
+            $scope.login = function () {
+                var validUser = $scope.users.find(u => u.username === $scope.loginData.username && u.password === $scope.loginData.password);
+                if (validUser) {
+                    $scope.message = "Login successful!";
+                } else {
+                    $scope.message = "Invalid username or password.";
+                }
+            };
+        });
+    </script>
 </body>
 </html>
