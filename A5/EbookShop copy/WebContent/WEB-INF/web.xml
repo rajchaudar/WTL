@@ -1,0 +1,32 @@
+<web-app>
+  <servlet>
+    <servlet-name>BookList</servlet-name>
+    <servlet-class>com.ebookshop.BookListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookList</servlet-name>
+    <url-pattern>/books</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BuyBook</servlet-name>
+    <servlet-class>com.ebookshop.BuyBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuyBook</servlet-name>
+    <url-pattern>/buy</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddBook</servlet-name>
+    <servlet-class>com.ebookshop.AddBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddBook</servlet-name>
+    <url-pattern>/addbook</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>
